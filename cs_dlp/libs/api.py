@@ -519,7 +519,7 @@ class VideosV1(object):
 
         videos = [VideoV1(resolution, links['mp4VideoUrl'])
                   for resolution, links
-                  in data['sources']['byResolution'].items()]
+                  in data['sources']['byResolution'].items() if 'mp4VideoUrl' in links]
         videos.sort(key=lambda video: video.resolution, reverse=True)
 
         videos = OrderedDict(
